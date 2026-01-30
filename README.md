@@ -70,8 +70,7 @@ The calibration factor was derived experimentally and can be adjusted to improve
 ESP32-Air-Quality-Monitor/  
 ├── esp32_aqi_dashboard.ino  
 ├── README.md  
-└── screenshots/  
-&nbsp;&nbsp;&nbsp;&nbsp;└── ui_dashboard.png  
+└── ui_dashboard.jpg
 
 ---
 
@@ -109,7 +108,7 @@ Update them locally before uploading the code to the ESP32.
 
 ## 📷 Screenshots
 
-![ESP32 AQI Dashboard](screenshots/ui_dashboard.png)
+![ESP32 AQI Dashboard](/ui_dashboard.jpg)
 
 ---
 
