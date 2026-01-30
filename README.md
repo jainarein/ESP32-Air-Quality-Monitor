@@ -1,31 +1,33 @@
 # ESP32 Air Quality Monitoring System 🌍
 
-A web-based air quality monitoring system built using **ESP32** and MQ-series gas sensors.  
-The system reads sensor data, estimates Air Quality Index (AQI) levels, and displays the results on a **real-time web dashboard hosted directly on the ESP32**.
+A physically implemented air quality monitoring system built using **ESP32** and MQ-series gas sensors.  
+The system senses real-world air quality parameters, estimates Air Quality Index (AQI) levels, and displays the results on a **real-time web dashboard hosted directly on the ESP32**.
 
-This project focuses on embedded sensing, on-device data processing, and lightweight web visualization.
+This project focuses on embedded sensing, on-device data processing, and lightweight web-based visualization.
 
 ---
 
 ## 🚀 Features
+- Physically implemented system using gas sensors
 - ESP32-based embedded web server (no external backend)
-- Real-time AQI estimation from gas sensor readings
+- Real-time AQI estimation from sensor readings
 - Dark-themed, responsive web dashboard
 - Automatic page refresh every 5 seconds
-- Simple and efficient firmware design
+- Compact and efficient firmware design
 
 ---
 
 ## 🛠️ Hardware Components
 - ESP32 Dev Module  
 - MQ2 Gas Sensor  
-- MQ135 Gas Sensor *(planned / optional)*  
-- Wi-Fi network
+- MQ135 Gas Sensor *(available for extended air quality sensing)*  
+- Connecting wires and power supply  
+- Wi-Fi network  
 
 ---
 
 ## 📊 AQI Classification
-The estimated AQI is categorized into standard air quality levels:
+The estimated AQI values are categorized into standard air quality levels:
 
 | AQI Range | Air Quality Level |
 |----------|------------------|
@@ -39,30 +41,29 @@ The estimated AQI is categorized into standard air quality levels:
 ---
 
 ## 🌐 Web Dashboard
-- Displays current AQI value
+- Displays real-time AQI values
 - Shows corresponding air quality status
 - Hosted directly on the ESP32 using an embedded HTTP server
-- Accessible via ESP32 local IP address
-
-**Note:** UI screenshots may show simulated AQI values for demonstration purposes when physical sensors are unavailable.
+- Accessible through the ESP32’s local IP address on any browser
 
 ---
 
 ## ⚙️ System Workflow
-1. ESP32 reads analog data from the MQ2 gas sensor  
-2. Raw ADC values are scaled to estimate AQI  
-3. AQI value is mapped to a standard air quality category  
-4. Results are served as a web page through the ESP32 web server  
-5. The dashboard auto-refreshes to display updated values  
+1. MQ gas sensors measure air quality parameters
+2. ESP32 reads analog sensor data through ADC pins
+3. Raw sensor values are scaled to estimate AQI
+4. AQI values are mapped to standard air quality categories
+5. Data is served via an embedded web server
+6. Web dashboard auto-refreshes to display updated readings
 
 ---
 
 ## 🧪 Calibration Method
-A simple linear scaling approach is used for AQI estimation:
+A linear calibration approach is used for AQI estimation:
 
 AQI = Raw_ADC × Calibration_Factor
 
-The calibration factor was derived experimentally and can be adjusted to improve accuracy based on the environment and sensor behavior.
+The calibration factor was derived experimentally based on observed sensor behavior and can be adjusted for different environments.
 
 ---
 
@@ -75,40 +76,42 @@ ESP32-Air-Quality-Monitor/
 ---
 
 ## ▶️ How to Run
-1. Open the `.ino` file in Arduino IDE  
-2. Select **ESP32 Dev Module** as the board  
-3. Enter your Wi-Fi credentials in the code  
-4. Upload the sketch to ESP32  
-5. Open Serial Monitor to note the ESP32 IP address  
-6. Visit the IP address in a web browser to view the dashboard  
+1. Connect the MQ sensors to the ESP32 ADC pins  
+2. Open the `.ino` file in Arduino IDE  
+3. Select **ESP32 Dev Module** as the board  
+4. Enter your Wi-Fi credentials in the code  
+5. Upload the sketch to the ESP32  
+6. Open Serial Monitor to obtain the ESP32 IP address  
+7. Open the IP address in a web browser to view the dashboard  
 
 ---
 
 ## 🔒 Security Note
-Wi-Fi credentials are intentionally kept as placeholders in the repository.  
-Update them locally before uploading the code to the ESP32.
+Wi-Fi credentials are kept as placeholders in the repository.  
+Update them locally before flashing the firmware.
 
 ---
 
 ## 📌 Limitations
-- AQI values are approximate and not reference-grade  
-- MQ135 sensor integration requires proper voltage scaling  
-- Environmental factors affect gas sensor accuracy  
+- AQI values are approximate and not reference-grade
+- MQ sensors are sensitive to environmental conditions
+- Proper voltage scaling is required for reliable ADC readings
 
 ---
 
 ## 🚧 Future Improvements
-- Proper MQ135 integration with ADC voltage scaling  
-- Sensor data smoothing and filtering  
-- Historical AQI visualization  
-- TinyML-based AQI trend prediction  
-- Cloud integration (Grafana / ThingSpeak)  
+- Improved MQ135 integration with proper voltage division
+- Sensor data smoothing and filtering
+- Historical AQI visualization
+- TinyML-based AQI trend prediction
+- Cloud-based data logging and dashboards
 
 ---
 
 ## 📷 Screenshots
+Project screenshots showing the live web dashboard:
 
-![ESP32 AQI Dashboard](/ui_dashboard.jpg)
+![ESP32 AQI Dashboard](ui_dashboard.jpg)
 
 ---
 
